@@ -47,11 +47,16 @@ public class Complex {
         this.ao = ao;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public String toString() {
-        if (ao > 0) {
-            return thuc + "+" + ao + "i";
+        if (this.ao < 0) {
+            return thuc + "+" + this.ao + "i";
         } else {
-            return thuc + ao + "i";
+            return thuc + this.ao + "i";
         }
     }
 
@@ -71,7 +76,7 @@ public class Complex {
 
     public Complex nhan(Complex b) {
         Complex c = new Complex();
-        c.thuc = thuc * b.thuc + ao * b.ao;
+        c.thuc = thuc * b.thuc - ao * b.ao;
         c.ao = thuc * b.ao + ao * b.thuc;
         return c;
     }
